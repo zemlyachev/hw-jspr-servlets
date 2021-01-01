@@ -1,6 +1,7 @@
 package ru.netology.servlet;
 
 import ru.netology.controller.PostController;
+import ru.netology.exception.NotFoundException;
 import ru.netology.repository.PostRepository;
 import ru.netology.service.PostService;
 
@@ -28,32 +29,37 @@ public class MainServlet extends HttpServlet {
     try {
       final var path = req.getRequestURI();
       final var method = req.getMethod();
+      final var id = getId(path);
       // primitive routing
-      if (method.equals(GET) && path.equals("/api/posts")) {
-        controller.all(resp);
+      if (method.equals(GET)) {
+        if (id > 0) {
+          controller.getById(id, resp);
+        } else {
+          controller.all(resp);
+        }
         return;
       }
-      if (method.equals(GET) && path.matches("/api/posts/\\d+")) {
-        // easy way
-        final var id = Long.parseLong(path.substring(path.lastIndexOf("/")));
-        controller.getById(id, resp);
-        return;
-      }
-      if (method.equals(POST) && path.equals("/api/posts")) {
+      if (method.equals(POST) && (id == -1)) {
         controller.save(req.getReader(), resp);
         return;
       }
-      if (method.equals(DELETE) && path.matches("/api/posts/\\d+")) {
-        // easy way
-        final var id = Long.parseLong(path.substring(path.lastIndexOf("/")));
+      if (method.equals(DELETE) && (id > 0)) {
         controller.removeById(id, resp);
         return;
       }
       resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
     } catch (Exception e) {
       e.printStackTrace();
-      resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+      if (e instanceof NotFoundException) {
+        resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+      } else {
+        resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+      }
     }
+  }
+
+  private long getId(String path) {
+    return path.matches("/api/posts/\\d+") ? Long.parseLong(path.substring(path.lastIndexOf("/") + 1)) : -1;
   }
 }
 
