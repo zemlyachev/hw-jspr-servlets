@@ -1,6 +1,6 @@
-/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/src/main/java/ru/netology/repository/PostRepository.java
-/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/src/main/java/ru/netology/servlet/MainServlet.java
-/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/src/main/java/ru/netology/controller/PostController.java
-/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/src/main/java/ru/netology/model/Post.java
-/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/src/main/java/ru/netology/exception/NotFoundException.java
-/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/src/main/java/ru/netology/service/PostService.java
+/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/hw-jspr-servlets/src/main/java/ru/netology/controller/PostController.java
+/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/hw-jspr-servlets/src/main/java/ru/netology/repository/PostRepository.java
+/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/hw-jspr-servlets/src/main/java/ru/netology/service/PostService.java
+/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/hw-jspr-servlets/src/main/java/ru/netology/model/Post.java
+/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/hw-jspr-servlets/src/main/java/ru/netology/servlet/MainServlet.java
+/Users/andrejzemlacev/IdeaProjects/hw-servlet21/servlets/hw-jspr-servlets/src/main/java/ru/netology/exception/NotFoundException.java
